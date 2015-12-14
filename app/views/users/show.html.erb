@@ -1,4 +1,23 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
-</h1>
+
+<h2>
+  <%= @user.email %><br/>
+  <br/>
+  <%= @user.location %><br/>
+  <br/>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= @user.profile %>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <% if logged_in? %>
+  <button type="submit" class="btn btn-default">
+    <%= link_to 'ユーザー情報を編集', edit_user_path %>
+  </button>
+  <% else %>
+  <% end %>
+</h2>
