@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
   
   def show
-    @user = User.find(params[:id])
   end
 
   def new
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
   def edit
     if @user == current_user
     else
-      render 'show'
+      redirect_to root_path, alert: "不正なアクセスです！"
     end
   end
   
@@ -31,7 +30,7 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザー情報を編集しました"
       redirect_to current_user
     else
-      render 'edit'
+      redirect_to root_path, alert: "不正なアクセスです！"
     end
   end
   
