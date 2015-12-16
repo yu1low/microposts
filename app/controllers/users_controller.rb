@@ -33,12 +33,12 @@ class UsersController < ApplicationController
       redirect_to root_path, alert: "不正なアクセスです！"
     end
   end
-  
+
+  private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :location, :profile)
   end
   
-  private
   def set_user
     @user = User.find(params[:id])
   end
