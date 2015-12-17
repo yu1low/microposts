@@ -26,7 +26,8 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user.update(user_params)
+    if @user == current_user 
+      @user.update(user_params)
       flash[:success] = "ユーザー情報を編集しました"
       redirect_to current_user
     else
