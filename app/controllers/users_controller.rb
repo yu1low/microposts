@@ -26,10 +26,13 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user == current_user 
-      @user.update(user_params)
-      flash[:success] = "ユーザー情報を編集しました"
-      redirect_to current_user
+    if @user == current_user
+      if @user.update(user_params)
+        flash[:success] = "ユーザー情報を編集しました"
+        redirect_to current_user
+      else
+        render 'edit'
+      end
     else
       redirect_to root_path, alert: "不正なアクセスです！"
     end
