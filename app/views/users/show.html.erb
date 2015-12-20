@@ -6,15 +6,16 @@
         <%= @user.name %>
       </h1>
     </section>
+    <h2>
+      <%= @user.email %><br/>
+      <br/>
+      <%= @user.location %><br/>
+      <br/>
+      <%= @user.profile %>
+    </h2>
   </aside>
-  <h2>
-  <%= @user.email %><br/>
-  <br/>
-  <%= @user.location %><br/>
-  <br/>
-  <%= @user.profile %>
-  </h2>
-  <div class="col-md-8">
+ <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
