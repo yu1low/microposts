@@ -7,6 +7,13 @@
       </h1>
     </section>
   </aside>
+  <h2>
+  <%= @user.email %><br/>
+  <br/>
+  <%= @user.location %><br/>
+  <br/>
+  <%= @user.profile %>
+  </h2>
   <div class="col-md-8">
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -16,3 +23,5 @@
     <% end %>
   </div>
 </div>
+
+

@@ -1,0 +1,56 @@
+<h1>ユーザー情報の編集<h1>
+
+<h2>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @user.errors.full_messages.each do |full_user| %>
+          <li>
+            <%= full_user %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <div class="pull-left">
+      名前:
+    </div>
+    <%= f.text_field :name, class: "form-control", placeholder: "お名前" %>
+  </div>
+  <div class="form-group">
+    <div class="pull-left">
+      email：
+    </div>
+    <%= f.email_field :email, class: "form-control", placeholder: "email" %>
+  </div>
+  <div class="form-group">
+    <div class="pull-left">
+      password：
+    </div>
+    <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力してください" %>
+  </div>
+  <div class="form-group">
+    <div class="pull-left">
+      password confirmation：
+    </div>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードをもう一度入力してください" %>
+  </div>
+  <div class="form-group">
+    <div class="pull-left">
+      地域：
+    </div>
+    <%= f.text_field :location, class: "form-control", placeholder: "地域"  %>
+  </div>
+  <div class="form-group">
+    <div class="pull-left">
+      プロフィール：
+    </div>
+    <%= f.text_area :profile, class: "form-control", placeholder: "プロフィール" %>
+  </div>
+  <%= f.submit "更新", class: "btn btn-sm btn-primary" %>
+<% end %>
+</h2>
