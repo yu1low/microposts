@@ -15,13 +15,14 @@
       <span class="glyphicon glyphicon-comment" aria-hidden="true"><%= @user.profile %></span><br/>
     </h3>
   </aside>
- <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
+<div class="col-md-8">
+  <% if @following_users.any? %>
+    <h3>Followings (<%= @user.following_users.count %>)</h3>
+      <ol class="followingsfollowers">
+      <% @following_users.each do |following_user| %>
+        <%= render partial: 'users/following', locals: { following_user: following_user } %>
+      <% end %>
       </ol>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 </div>

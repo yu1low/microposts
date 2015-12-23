@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :followings]
   
   def show
     @user = User.find(params[:id])
@@ -38,6 +38,16 @@ class UsersController < ApplicationController
     else
       redirect_to root_path, alert: "不正なアクセスです！"
     end
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @following_users = @user.following_users.order(created_at: :desc)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @follower_users = @user.follower_users.order(created_at: :desc)
   end
 
   private
