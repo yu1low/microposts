@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show, :followings]
+  before_action :set_user, only: [:edit, :update, :show]
   
   def show
     @user = User.find(params[:id])
@@ -49,13 +49,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @follower_users = @user.follower_users.order(created_at: :desc)
   end
+  
+  def index
+    @users = User.page(params[:page])
+  end
+  
+
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location, :profile)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location, :profile, :avatar)
   end
   
   def set_user
     @user = User.find(params[:id])
   end
+  
 end

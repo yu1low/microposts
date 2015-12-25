@@ -15,14 +15,14 @@
       <span class="glyphicon glyphicon-comment" aria-hidden="true"><%= @user.profile %></span><br/>
     </h3>
   </aside>
-<div class="col-md-8">
-  <% if @follower_users.any? %>
-    <h3>Followers (<%= @user.follower_users.count %>)</h3>
-      <ol class="followingsfollowers">
-      <% @follower_users.each do |follower_user| %>
-        <%= render partial: 'users/follower', locals: { follower_user: follower_user } %>
-      </ol>
-      <% end %>
-  <% end %>
-</div>
+  <div class="col-md-8">
+    <% if @follower_users.any? %>
+      <h3>Followers (<%= @user.follower_users.count %>)</h3>
+        <ol class="followingsfollowers">
+        <% @follower_users.each do |follower_user| %>
+          <%= render partial: 'users/follower', locals: { follower_user: follower_user } %>
+        </ol>
+        <% end %>
+    <% end %>
+  </div>
 </div>
