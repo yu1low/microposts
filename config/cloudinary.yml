@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dxep9ntlg
+  api_key: '466598373241939'
+  api_secret: DUGwUUND7JhVLTU2Pu0Z3rlN760
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dxep9ntlg
+  api_key: '466598373241939'
+  api_secret: DUGwUUND7JhVLTU2Pu0Z3rlN760
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dxep9ntlg
+  api_key: '466598373241939'
+  api_secret: DUGwUUND7JhVLTU2Pu0Z3rlN760
+  enhance_image_tag: true
+  static_image_support: false
