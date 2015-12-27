@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 
 gem 'carrierwave'
+
 gem 'cloudinary'
 
 # Use ActiveModel has_secure_password
