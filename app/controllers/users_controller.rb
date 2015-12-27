@@ -51,14 +51,12 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.page(params[:page])
+    @users = User.all.page(params[:page]).per(5)
   end
-  
-
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location, :profile, :avatar)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location, :profile)
   end
   
   def set_user
