@@ -21,8 +21,8 @@
         <ol class="followingsfollowers">
         <% @follower_users.each do |follower_user| %>
           <%= render partial: 'users/follower', locals: { follower_user: follower_user } %>
-        </ol>
         <% end %>
+        </ol>
     <% end %>
   </div>
 </div>
